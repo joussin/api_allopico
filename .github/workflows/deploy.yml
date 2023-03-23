@@ -21,6 +21,10 @@ jobs:
         run: cat ~/.ssh/known_hosts
 
 
+      - name: Adding ssh config
+        run: cat ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/config
+
+
       - name: Read ssh config
         run: cat ~/.ssh/config
 
