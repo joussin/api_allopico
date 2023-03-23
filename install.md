@@ -1,4 +1,13 @@
 
+# deploy steps
+
+### as root 
+
+docker-compose down
+docker-compose up --build -d
+
+### as stephane
+
 su stephane
 
 cd /home/stephane/
@@ -10,7 +19,9 @@ composer update
 cp .env.example .env
 php artisan key:generate
 
-as root ?
+
+### as root ?
+
 
 chmod -R 777 /var/www/html/storage/logs
 chmod -R 777 /var/www/html/storage/app
