@@ -177,10 +177,10 @@ erDiagram
 
 ## api-allopico:
 
-- host: 0.0.0.0:3333
+- host: 0.0.0.0:4444
 - Domain: jouss.in
 
-- Swagger: http://0.0.0.0:3333/api/docs/index.html
+- Swagger: http://0.0.0.0:4444/api/docs/index.html
 - Swagger: http://jouss.in/api/docs/index.html
 
 - bdd:

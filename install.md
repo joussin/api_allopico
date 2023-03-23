@@ -14,8 +14,8 @@ open http://127.0.0.1:4444/api/docs/index.html
 
 ## kill serve
 
-> lsof -i :3333
-to check if the port is busy or not if any process is listening to the port 8099 it will be displayed with port id
+> lsof -i :4444
+to check if the port is busy or not if any process is listening to the port 4444 it will be displayed with port id
 
 > sudo  kill -9 [PID]
 
