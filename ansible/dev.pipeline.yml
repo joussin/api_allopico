@@ -7,7 +7,7 @@
 
   - name: Test
     shell: |
-      /bin/rm -rf /home/stephane/deployment/
+      cd /home/stephane/deployment/
     become: yes
     become_user: stephane
     args:
