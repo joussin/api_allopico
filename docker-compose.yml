@@ -2,7 +2,8 @@ version: '3.5'
 services:
 
   php_service:
-    image: dev.registry.cartegriseminute.net/base_image_php:8.1.17
+    build:
+      context: ./docker/php/
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     volumes:
