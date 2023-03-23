@@ -1,0 +1,2 @@
+[dev]
+188.166.171.132 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_private_key_file=~/.ssh/config
