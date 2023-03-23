@@ -1,4 +1,23 @@
 
+su stephane
+
+cd /home/stephane/
+
+git clone git@github.com:joussin/api_allopico.git
+
+composer update
+
+cp .env.example .env
+php artisan key:generate
+
+as root ?
+
+chmod -R 777 /var/www/html/storage/logs
+chmod -R 777 /var/www/html/storage/app
+chmod -R 777 /var/www/html/storage/framework
+
+
+
 ## Test
 
 Launch server

@@ -49,10 +49,7 @@ RUN useradd -G www-data,root -u 1000 -d /home/stephane stephane
 RUN mkdir -p /home/stephane/.composer && \
     chown -R stephane:stephane /home/stephane
 
-#RUN chmod -R 777 /var/www/html
-#RUN chmod -R 777 /var/www/html/storage/logs
-#RUN chmod -R 777 /var/www/html/storage/app
-#RUN chmod -R 777 /var/www/html/storage/framework
+
 
 # Everything after this point will run as $user user with a specific UID/GID
 
