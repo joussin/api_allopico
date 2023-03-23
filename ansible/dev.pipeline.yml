@@ -1,0 +1,91 @@
+- hosts: dev
+  gather_timeout: 40
+  become: yes
+  become_user: stephane
+
+  tasks:
+
+  - name: Test
+    shell: |
+      /bin/rm -rf /home/stephane/deployment/
+    become: yes
+    become_user: stephane
+    args:
+      chdir: /home/stephane/deployment/
+
+#  - name: Création et permissions du dossier
+#    shell: |
+#      /bin/rm -rf /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry/*
+#    become: yes
+#    become_user: root
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#
+#  - name: Clone API ecomm Git repository
+#    git: >
+#      dest=/home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#      repo=git@bitbucket.org:cartegrise/docker_registry.git
+#      version=develop
+#      force=yes
+#      update=yes
+#    become: yes
+#    become_user: cgmnet
+#    register: cloned
+#
+#
+#
+#  - name: Generate dirs auth & certs
+#    shell: |
+#      mkdir ./infrastructure/docker/auth/
+#      mkdir ./infrastructure/docker/certs/
+#    become: yes
+#    become_user: cgmnet
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#
+#
+#
+#
+#  - name: Generate htpasswd
+#    shell: |
+#      docker run \
+#      --entrypoint htpasswd \
+#      httpd:2 -Bbn "{{ HTPASSWD_USER }}" "{{HTPASSWD_PASSWORD}}" > ./infrastructure/docker/auth/htpasswd
+#    become: yes
+#    become_user: cgmnet
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#
+#
+#
+#  - name: Generate ssl keys
+#    shell: |
+#      openssl req \
+#          -new \
+#          -newkey rsa:4096 \
+#          -days 365 \
+#          -subj "/CN=dev.registry.cartegriseminute.net" \
+#          -nodes \
+#          -x509 \
+#          -keyout ./infrastructure/docker/certs/dev.registry.cartegriseminute.net.key \
+#          -out ./infrastructure/docker/certs/dev.registry.cartegriseminute.net.crt
+#    become: yes
+#    become_user: cgmnet
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#
+#
+#
+#  - name: docker-compose down -v
+#    shell: docker-compose -f infrastructure/docker/docker-compose-registry.yml down -v
+#    become: yes
+#    become_user: cgmnet
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
+#
+#  - name: docker-compose up --build -d
+#    shell: docker-compose -f infrastructure/docker/docker-compose-registry.yml up --build -d
+#    become: yes
+#    become_user: cgmnet
+#    args:
+#      chdir: /home/cgmnet/domains/dev.registry.cartegriseminute.net/registry
