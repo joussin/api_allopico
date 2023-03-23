@@ -5,6 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: pwd
+
+      - name: checkout repo
+        uses: actions/checkout@v2.3.4
+      - name: show example.text file content
+        run: pwd
+#        run: cat example.text
 #      - name: Deploy with ansible
 #        run: chmod 644 infrastructure/deploy
 #      - name: Deploy with ansible step 2
