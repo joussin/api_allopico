@@ -9,6 +9,7 @@ services:
     volumes:
       - ./:/var/www/html/
     container_name : api_picolo_php_container
+    image : api_picolo_php_image
     restart: always
 #    networks:
 #      - api_allopico_net
@@ -16,6 +17,7 @@ services:
 
   apache_service:
     container_name: api_picolo_apache_container
+    image: api_picolo_apache_image
     build:
       context: ./docker/apache/
     ports:
