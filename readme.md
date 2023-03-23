@@ -384,11 +384,8 @@ DeliveryApplication->>+Command: Command DELIVERY_FINISH
 
 ```
 
-
-
 # Diagram Flows : Admin side
 
 AdminApplication : private Admin application
 
 AdminUser : Admin de l'app
-
