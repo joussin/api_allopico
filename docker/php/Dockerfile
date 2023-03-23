@@ -42,7 +42,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #RUN addgroup -g 1000 -S www-data && \
 #    adduser -u 1000 -S www-data -G www-data
 
-USER www-data
+#USER www-data
+
+
+RUN useradd -G www-data,root -u 1000 -d /home/stephane stephane
+RUN mkdir -p /home/stephane/.composer && \
+    chown -R stephane:stephane /home/stephane
 
 
 # Everything after this point will run as $user user with a specific UID/GID
@@ -56,3 +61,6 @@ RUN php -m
 WORKDIR /var/www/html/
 
 EXPOSE 9000
+
+
+#chmod -R 777 /var/www
