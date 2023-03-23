@@ -8,7 +8,7 @@ docker-compose up --build -d
 
 SWAGGER
 ``` bash
-open http://127.0.0.1:3333/api/docs/index.html
+open http://127.0.0.1:4444/api/docs/index.html
 ```
 
 
