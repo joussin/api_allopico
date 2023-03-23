@@ -30,7 +30,7 @@ services:
 
 networks:
   api_allopico_net:
-    name: api_allopico_net
+    name: api_allopico-net
     ipam:
       driver: default
       config:
