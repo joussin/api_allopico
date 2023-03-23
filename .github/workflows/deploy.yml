@@ -22,7 +22,7 @@ jobs:
 
 
       - name: Adding ssh config
-        run: cat ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/config
+        run: ${{ secrets.SSH_PRIVATE_KEY }} >> ~/.ssh/config
 
 
       - name: Read ssh config
