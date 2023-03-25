@@ -22,7 +22,6 @@ api google map
 
 api IGN : https://geoservices.ign.fr/documentation/services/api-et-services-ogc
 
-
 # Documentation tools
 
 https://stackedit.io/app#
@@ -35,8 +34,6 @@ https://kroki.io/examples.html
 
 https://kroki.io/mermaid/svg/eNq1VV1vokAUfcZfccMzNoh17fJGBFtSvyK4mz6RiYztbPgwA3bbaP_7XoYvAWv7skQnw_XM3HPOvTNSbjLyzEnYA3w2CeVwOvX7pyPM4i1JWRyBDi8kmZPoXUCqsICdwPB9TpMkRy0j2tlnQnja2kMMIl5gVjz2D9s2rEacYBKHIYn8ZpocVfxSAFfkPaRR2gS2MCYN2Cvl71dBE5ZeB1xULoaSQ5PSIk7Zjp2b2lhUkSo8ER5WsBqXU8nIHcU0exgmYz6sHqtIknIWPUNEQtqTdkFMUgjwK9_e3dz90MbaSK7CMeJk7Ua7G49-ahguliLcy3-r1ig1KsvxUWVrdsY1XlnkgMo8DMuTQ5LGIcrEl5iDXzqALmNIrrf_bwoaAsRQVvUrEUGhNhMyfexJZ6bvDkHgkWIfeaDC-kBRHPLBVmBvCoxHqqrhnLPk3Mn66HyjspmJorqtOA0JC9rBPUmSvzH32_GCZBWm0SEEHgcUa7Nx3OXcWitgWjP7l7V-UsAw5_aiwzhv-eIEH3uSVHHOKifetniSS6Mkp25NAbARsOdsK94-WhfEMXf2zAep00el_eCTlKYMt80m2BGqNuyrw742goGmD1VdVRV4wqc_n_dNEx50pmMBGjmLI34t7bkYYViSkvSAlf5t2K69uPdWhm0qkI9lrDZxslxM7fXcMs9i5cyb2gvbeVDAtdZoteFaJvL7WlZTRDGWt1DdTJ8qylXnorKSwLdSSnBJvgJD01FgatgzCw1wNpOJ5Tg1fM_jV-Zjk8uOu7ZXVubU02q2uc8nxkxA_yR4kZRQj76lnHjIhYB8zHp3T5GsDgMFireiF0Qo46wDctb66gA_SMI13I2jw_Lxo9O-l27na-Xf5_iqnRsmgNzSLdwQ5ZG6N_3VLjuvycWmB7lzYUrFddk9Dd6W01zbJ8W8sIQmOMeJ71WJWotvR58u3rGIJS-dBeOyW6UeZH9q_wBP3UyH
 
-
-
 # DATABASE
 
 ## Rest Resources / DB models :
@@ -47,11 +44,13 @@ https://kroki.io/mermaid/svg/eNq1VV1vokAUfcZfccMzNoh17fJGBFtSvyK4mz6RiYztbPgwA3b
 
 **Location** : Represent a gps location. Obtenu grâce au gps du tel. Le user possède une collection de Location.
 
-**Address** : Represent a location address. Addresse complète en une chaine. Obtenu grâce à l'api G+ map à partir des coordonnées. coords -> full address
+**Address** : Represent a location address. Addresse complète en une chaine. Obtenu grâce à l'api G+ map à partir des
+coordonnées. coords -> full address
 
 **Product** : Represent un produit de l'application.
 
-**Cart** : Represent an user list of selected products. temporaire, modififiable ... persisté dans le but d'améliorer l'ux
+**Cart** : Represent an user list of selected products. temporaire, modififiable ... persisté dans le but d'améliorer l'
+ux
 
 **Command** : Represent a Cart validated before payment. Panier validé puis stocké en base en vue d'être réglé.
 
@@ -60,8 +59,6 @@ https://kroki.io/mermaid/svg/eNq1VV1vokAUfcZfccMzNoh17fJGBFtSvyK4mz6RiYztbPgwA3b
 **PaymentNotification** : Represent the Payment provider notification
 
 **Delivery** : Represent Command Delivery
-
-
 
 ```mermaid  
 erDiagram
@@ -86,18 +83,18 @@ erDiagram
     City {
         int id PK
         string name
-	float lat "48.862725"
-	float long "2.287592"
-	string lat_long "48.862725,2.287592"
+        float lat "48.862725"
+        float long "2.287592"
+        string lat_long "48.862725,2.287592"
     }
         
     Location {
         int id PK
         int user_id "Customer id or delivery man id"
         
-	float lat "48.862725"
-	float long "2.287592"
-	string lat_long "48.862725,2.287592"
+        float lat "48.862725"
+        float long "2.287592"
+        string lat_long "48.862725,2.287592"
     }        
     
     Address {
@@ -130,15 +127,15 @@ erDiagram
 	}
     
     Command {
-	     int id PK
-	     int cart_id FK
-	enum status "WAITING_PAID, PAID, WAITING_DELIVERY, CONFIRMED_DELIVERY, DELIVERY_FINISH, TERMINATED"
-	datetime date "2023-03-25 12:30:00"
+        int id PK
+        int cart_id FK
+        enum status "WAITING_PAID, PAID, WAITING_DELIVERY, CONFIRMED_DELIVERY, DELIVERY_FINISH, TERMINATED"
+        datetime date "2023-03-25 12:30:00"
 	}
     
      
      Payment {
-            int id PK
+         int id PK
 	     int command_id FK 
 		 datetime date "2023-03-25 12:30:00"
 		 enum status "WAITING, 3DS, FAILED, SUCCESS"
@@ -167,13 +164,12 @@ erDiagram
   
 ```  
 
-
 ---
 
 
 ---
 
-# Api REST 
+# Api REST
 
 ## api-allopico:
 
@@ -185,9 +181,7 @@ erDiagram
 
 - bdd:
 
-  - dev: dev_api_allopico
-
-
+    - dev: dev_api_allopico
 
 #### **Api resource User** :
 
@@ -198,21 +192,20 @@ erDiagram
 > GET /user/profile()
 > PUT /user/profile()
 
-
 #### **Crud sur les resources suivantes** :
 
 > Resources:
 
-  -  Product 
-  -  Cart 
-  -  Command 
-  -  Delivery
+- Product
+- Cart
+- Command
+- Delivery
 
-> GET /resource/list 
-> POST /resource/create 
-> GET /resource/show 
-> PUT /resource/update 
-> DELETE /resource/delete 
+> GET /resource/list
+> POST /resource/create
+> GET /resource/show
+> PUT /resource/update
+> DELETE /resource/delete
 > GET /resource/listFiltered
 
 #### **Api Geo : Location - City - Address** :
@@ -220,11 +213,10 @@ erDiagram
 api google map
 api IGN : https://geoservices.ign.fr/documentation/services/api-et-services-ogc
 
-
 CRUD:
 
 > GET User Location collection
-> POST add Location to User 
+> POST add Location to User
 > GET Location
 > GET Location/all
 > POST Location
@@ -248,11 +240,9 @@ AUTRES ENDPOINTS:
 > GET /GEO/address_to_city()
 > GET /GEO/city_to_lat_long()
 > GET /GEO/address_to_lat_long()
-> GET /GEO/city_to_address() 
-> GET /GEO/address_full_to_address_object() 
+> GET /GEO/city_to_address()
+> GET /GEO/address_full_to_address_object()
 > GET /GEO/address_object_to_address_full()
-
-
 
 #### **Api resources : Payment - PaymentNotification** :
 
@@ -262,8 +252,7 @@ AUTRES ENDPOINTS:
 
 ---
 
-# Application Flows 
-
+# Application Flows
 
 # Diagram Flows : User side
 
@@ -272,8 +261,6 @@ ClientApplication : public Customer application
 User : Customer
 
 ### Flow Register/login, Gps location, list Products
-
-  
 
 ```mermaid
 sequenceDiagram
@@ -301,39 +288,58 @@ ClientApplication->>+Product: list all Products
 Product->>-ClientApplication: Product[]
 ```
 
-  
-
-### Flow Command and payment 
-  
+### Flow Command and payment
 
 ```mermaid
 sequenceDiagram
 
 User->>+Cart: Add Product to cart
 
+Cart->>-User: cart with product added
+
 User->>+Command: Validate Cart & create a Command
 
-User->>+Payment: Validate Command & Choose payment provider
+Command->>-User: Command created
 
-User->>+Payment: Show payment provider form (initPayment)
-
-User->>+Payment: Validate payment (finalizePayment)
-
-Payment->>+User: Payment notification (confirmPaymentNotification)
-
-User->>+Command: Status Command as Paid in DB
-
-User->>+Command: Status Command as waiting_delivery
-
-User->>+Payment: Confirm payment in DB (confirmPayment)
+User->>+Payment: Validate Command by Choosing payment provider
 
 ```
 
-### Flow Delivery 
-
+### Flow payment
 
 ```mermaid
 sequenceDiagram
+
+
+User->>+Payment: Get & Show payment provider form (initPayment)
+
+Payment->>-User: get & show html form
+
+User->>+Payment: Validate payment (finalizePayment)
+
+Payment->>-Command: Status Command as WAITING in DB
+
+activate Command
+
+Command-->>-User: Waiting for PaymentProvider notification
+
+PaymentProvider->>+User: PaymentProvider notification (confirmPaymentNotification)
+
+User->>+Payment: Confirm payment in DB (confirmPayment)
+
+User->>+Command: Status Command as PAID in DB
+
+```
+
+### Flow Delivery
+
+```mermaid
+sequenceDiagram
+  
+
+DeliveryUser-->>+Command: DeliveryUser accept command
+
+User-->>+Command: Status Command as WAITING_DELIVERY  
   
 ClientApplication->>+Delivery: Check Delivery date_estimated_delivery
 
@@ -349,6 +355,7 @@ User->>+Command: User validate Delivery (Command status TERMINATED)
 
 Command->>-ClientApplication: Show Command as TERMINATED
 
+
 ```
 
 # Diagram Flows : DeliveryUser side
@@ -357,8 +364,8 @@ DeliveryApplication : private livreur application
 
 DeliveryUser : livreur
 
-
 ### Flow Command
+
 ```mermaid
 sequenceDiagram
 
@@ -371,8 +378,8 @@ DeliveryUser->>+Command: validate Command Delivery (Command status CONFIRMED_DEL
 DeliveryUser->>+Delivery: Delivery date_estimated_delivery = now + 30min
 ```
 
+### Flow Delivery
 
-### Flow Delivery 
 ```mermaid
 sequenceDiagram
 
